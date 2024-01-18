@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Post;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -18,8 +19,9 @@ class CommentFactory extends Factory
     public function definition(): array
     {
         $users = User::all()->pluck('name')->toArray();
+        $id = Post::first()->user_id;
         return [
-            "user_id" => 666187,
+            "user_id" => $id,
             "name" => $users[rand(0,9)],
             "photo" => $this->faker->image,
             "captcha" => $this->faker->word(),

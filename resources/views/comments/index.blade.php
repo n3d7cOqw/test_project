@@ -76,17 +76,16 @@
                                 . \Carbon\Carbon::parse($comment->created_at)->format("d.m.Y") . " в "
                                 . \Carbon\Carbon::parse($comment->created_at)->format("H:i")}}</span>
                                 <!-- HTML-код для кнопки -->
-
                             </div>
                             <div>
                                 <p class="small mb-0" style="font-size: 16">
-                                    {{$comment->text}}
+                                    {!! $comment->text !!}
                                 </p>
-                                <div>
+
                                     @isset($comment->photo)
-                                        <img src="{{asset("storage/" . $comment->photo), false}}" alt="" >
+                                        <img src="{{asset("storage/" . $comment->photo)}}" alt="" >
                                     @endisset
-                                </div>
+
                             </div>
 
                         </div>

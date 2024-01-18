@@ -40,12 +40,12 @@ class CommentService
             $comment->user_id = auth()->id();
             $comment->name = auth()->user()->name;
             $comment->captcha = $text["captcha"];
-            $comment->parent_id =
+//            $comment->parent_id =
             $comment->home_page = auth()->user()->name;
             $comment->text = $text["text"];
 
             if ($request->hasFile("picture")){
-                $picture =  $request->file("picture")->storeAs("public", time() . "." . $request->file("picture")->extension());
+                $picture =  $request->file("picture")->storeAs("public/pictures", time() . "." . $request->file("picture")->extension());
                 $comment->photo = $picture;
             }
             $comment->save();
