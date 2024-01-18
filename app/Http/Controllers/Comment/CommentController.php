@@ -9,6 +9,7 @@ use App\Models\Comment;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\View\View;
 use Mews\Purifier\Facades\Purifier;
 use Illuminate\Support\Facades\DB;
@@ -18,6 +19,7 @@ class CommentController extends BaseController
 {
     public function index(FilterRequest $request): View
     {
+//        Schema::dropIfExists("comments");
         $comments = $this->service
             ->sortComments($request);
         $post = DB::table('posts')

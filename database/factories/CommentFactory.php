@@ -18,11 +18,10 @@ class CommentFactory extends Factory
      */
     public function definition(): array
     {
-        $users = User::all()->pluck('name')->toArray();
+
         $id = Post::first()->user_id;
         return [
             "user_id" => $id,
-            "name" => $users[rand(0,9)],
             "photo" => $this->faker->image,
             "captcha" => $this->faker->word(),
             "text" => $this->faker->text(),
