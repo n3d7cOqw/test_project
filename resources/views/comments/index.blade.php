@@ -28,7 +28,6 @@
                                         <label for="comment"><h4>Добавить комментарий</h4></label>
                                         <textarea class="form-control mb-2" id="comment" name="text"
                                                   rows="3"></textarea>
-
                                         <label for="captcha">Введите капчу</label>
                                         <p> {!!captcha_img() !!}  </p>
                                         <input id="captcha" type="text" class="form-control" placeholder="Enter Captcha"
