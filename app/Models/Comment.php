@@ -12,4 +12,12 @@ class Comment extends Model
     protected $table = "comments";
 
     protected $fillable = ["name", "home_page", "text", "captcha", "photo"];
+
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
+
+    public function replies() {
+        return $this->hasMany(Comment::class, 'parent_id', 'id');
+    }
 }

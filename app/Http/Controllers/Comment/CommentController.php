@@ -19,14 +19,12 @@ class CommentController extends BaseController
 {
     public function index(FilterRequest $request): View
     {
-//        Schema::dropIfExists("comments");
         $comments = $this->service
             ->sortComments($request);
         $post = DB::table('posts')
             ->leftJoin('users', 'posts.user_id', '=', 'users.id')
             ->select("posts.text", "users.name", "posts.created_at")
             ->get()->first();
-//        $post = Post::first();
         if ($comments === null)
         {
             $comments = Comment::paginate(25);

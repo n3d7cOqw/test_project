@@ -45,7 +45,7 @@ class CommentService
             $comment->text = $text["text"];
 
             if ($request->hasFile("picture")){
-                $picture =  $request->file("picture")->storeAs("public/pictures", time() . "." . $request->file("picture")->extension());
+                $picture =  $request->file("picture")->store('pictures/comments', "public");
                 $comment->photo = $picture;
             }
             $comment->save();

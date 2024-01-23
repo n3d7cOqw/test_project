@@ -1,3 +1,5 @@
+@extends("layouts.header")
+@yield("body")
 <x-guest-layout>
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
@@ -40,8 +42,12 @@
             @endif
 
             <x-primary-button class="ms-3">
-                {{ __('Log in') }}
+                {{ __('Войти') }}
             </x-primary-button>
+                <a href="{{route("register")}}" class="btn btn-primary ml-1 py-1">
+                    {{ __('Зарегестрироваться') }}
+                </a>
+
         </div>
     </form>
 </x-guest-layout>
