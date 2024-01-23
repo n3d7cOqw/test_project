@@ -86,7 +86,6 @@
                                         <p class="small mb-0" style="font-size: 16">
                                             {!! $comment->text !!}
                                         </p>
-
                                         @isset($comment->photo)
                                             <img src="{{asset("storage/" . $comment->photo)}}" alt=""
                                                  style="max-width: 360px; max-height: 160px">
